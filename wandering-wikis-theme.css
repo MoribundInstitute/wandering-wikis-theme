@@ -117,42 +117,38 @@
       fill: var(--color-on-surface);
     }
 
-    /* Navigation Menu */
-    .nav-menu {
-      display: none;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 250px;
-      background-color: var(--color-surface);
-      padding: 20px;
-      box-shadow: -2px 0 4px rgba(0,0,0,0.1);
-      overflow-y: auto;
-      border-radius: 40px 10px 10px 40px; /* Rounds the corners */
+  .nav-menu {
+  /* Existing properties */
+  border-radius: 15px; /* This applies 15px radius to all corners */
   overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
-      margin-top: 60px;
+  /* Other properties */
+  margin-top: 60px; /* Adjust based on your header height */
+  right: 10px; /* Gives some space on the right side */
+  width: 250px; /* Adjust the width as needed */
+  background-color: var(--color-surface); /* Use your theme's background color */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
-    }
 
-    .nav-menu.active {
-      display: block;
-    }
-
-    .nav-menu ul {
-  border-radius: 0 0 0 15px;
+/* If you're also styling the inner ul, update it as well */
+.nav-menu ul {
+  border-radius: 15px;
   overflow: hidden;
+  padding: 10px 0; /* Adds some vertical padding inside the menu */
 }
 
-    .nav-menu li {
-      margin-bottom: 15px;
-    }
+.nav-menu li {
+  padding: 10px 20px; /* Adds padding to each menu item */
+}
 
-    .nav-menu a {
-      color: var(--color-on-surface);
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
+.nav-menu a {
+  color: var(--color-on-surface); /* Use your theme's text color */
+  text-decoration: none;
+  display: block; /* Makes the entire area clickable */
+}
+
+.nav-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+}
 
     /* Main Content */
     .main-container {
