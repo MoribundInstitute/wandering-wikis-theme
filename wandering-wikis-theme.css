@@ -123,6 +123,9 @@
       padding: 20px;
       box-shadow: -2px 0 4px rgba(0,0,0,0.1);
       overflow-y: auto;
+      border-radius: 15px 0 0 15px; /* Rounds the bottom-left corner */
+  overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
+}
     }
 
     .nav-menu.active {
@@ -130,9 +133,9 @@
     }
 
     .nav-menu ul {
-      list-style-type: none;
-      padding: 0;
-    }
+  border-radius: 0 0 0 15px;
+  overflow: hidden;
+}
 
     .nav-menu li {
       margin-bottom: 15px;
