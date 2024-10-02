@@ -4,202 +4,279 @@
   margin: 0;
   padding: 0;
 }
+
 /* Variables */
-    :root {
-      --color-background: #121212;
-      --color-surface: #1E1E1E;
-      --color-primary: #BB86FC;
-      --color-secondary: #03DAC6;
-      --color-on-background: #E1E1E1;
-      --color-on-surface: #FFFFFF;
-      --font-main: 'Roboto', sans-serif;
-      --font-heading: 'Poppins', sans-serif;
-    }
-
-    /* Global Styles */
-    body {
-      font-family: var(--font-main);
-      background-color: var(--color-background);
-      color: var(--color-on-background);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--color-primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Header */
-    .header-container {
-      background-color: var(--color-surface);
-      padding: 10px 0;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      flex: 1;
-    }
-
-    .site-title {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-on-surface);
-    }
-
-    /* Search Bar */
-    .search-bar {
-      flex: 2;
-      max-width: 500px;
-    }
-
-    .search-bar form {
-      display: flex;
-      background-color: var(--color-background);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .search-bar input {
-      flex: 1;
-      padding: 10px 15px;
-      border: none;
-      background: transparent;
-      color: var(--color-on-background);
-    }
-
-    .search-bar button {
-      background: var(--color-primary);
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    .search-bar .icon {
-      width: 20px;
-      height: 20px;
-      fill: var(--color-on-surface);
-    }
-
-    /* Hamburger Menu */
-    .menu-toggle {
-      flex: 1;
-      text-align: right;
-    }
-
-    #hamburger-menu {
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    #hamburger-menu .icon {
-      width: 24px;
-      height: 24px;
-      fill: var(--color-on-surface);
-    }
-
-  .nav-menu {
-  /* Existing properties */
-  border-radius: 15px; /* This applies 15px radius to all corners */
-  overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
-  /* Other properties */
-  margin-top: 60px; /* Adjust based on your header height */
-  right: 10px; /* Gives some space on the right side */
-  width: 250px; /* Adjust the width as needed */
-  background-color: var(--color-surface); /* Use your theme's background color */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+:root {
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-primary: #08080C;
+  --color-secondary: #03DAC6;
+  --color-on-background: #E1E1E1;
+  --color-on-surface: #FFFFFF;
+  --font-main: 'Roboto', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+  --logo-x: -190px;
+  --search-x: 0px;
+  --hamburger-x: 200px;
+  --dropdown-menu-x: -62px;
 }
 
-/* If you're also styling the inner ul, update it as well */
-.nav-menu ul {
-  border-radius: 15px;
+/* Global Styles */
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header-container {
+  background-color: var(--color-surface);
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.header-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-section {
+  justify-content: flex-start;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transform: translateX(var(--logo-x));
+  transition: transform 0.3s ease;
+}
+
+.search-section {
+  justify-content: center;
+  transform: translateX(var(--search-x));
+  transition: transform 0.3s ease;
+}
+
+.menu-section {
+  justify-content: flex-end;
+  transform: translateX(var(--hamburger-x));
+  transition: transform 0.3s ease;
+}
+
+.header-image {
+  max-height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  max-width: 669px;
+  max-height: 40px;
+}
+
+.search-bar form {
+  display: flex;
+  background-color: var(--color-background);
+  border-radius: 20px;
   overflow: hidden;
-  padding: 10px 0; /* Adds some vertical padding inside the menu */
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-on-background);
+}
+
+.search-bar button {
+  background: var(--color-primary);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.search-bar .icon {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-on-surface);
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+  cursor: pointer;
+}
+
+#hamburger-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  width: 55px;
+  height: 55px;
+}
+
+#hamburger-menu .icon {
+  width: 35px;
+  height: 35px;
+  fill: var(--color-on-surface);
+  transition: fill 0.3s ease;
+}
+
+#hamburger-menu:hover .icon {
+  fill: var(--color-primary);
+}
+
+/* Navigation Menu */
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 100px;
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(var(--dropdown-menu-x)) translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+  max-width: 200px;
+  width: max-content;
+}
+
+.nav-menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(var(--dropdown-menu-x)) translateY(0);
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .nav-menu li {
-  padding: 10px 20px; /* Adds padding to each menu item */
+  padding: 0;
 }
 
 .nav-menu a {
-  color: var(--color-on-surface); /* Use your theme's text color */
+  color: var(--color-on-surface);
   text-decoration: none;
-  display: block; /* Makes the entire area clickable */
+  display: block;
+  padding: 10px 20px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
 }
 
 .nav-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-    /* Main Content */
-    .main-container {
-      display: flex;
-      margin-top: 40px;
-    }
+/* Main Content */
+.main-container {
+  display: flex;
+  margin-top: 40px;
+}
 
-    .main-content {
-      flex: 1;
-      margin-right: 40px;
-    }
+.main-content {
+  flex: 1;
+  margin-right: 40px;
+}
 
-    /* Sidebar */
-    .sidebar {
-      width: 300px;
-    }
+/* Sidebar */
+.sidebar {
+  width: 300px;
+}
 
-    /* Footer */
-    .footer-container {
-      background-color: var(--color-surface);
-      color: var(--color-on-surface);
-      padding: 40px 0;
-      margin-top: 60px;
-    }
+/* Footer */
+.footer-container {
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  padding: 40px 0;
+  margin-top: 60px;
+}
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .header-content {
-        flex-wrap: wrap;
-      }
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --logo-x: 0px;
+    --search-x: 0px;
+    --hamburger-x: 0px;
+    --dropdown-menu-x: 0px;
+  }
 
-      .logo, .menu-toggle {
-        flex: 0 0 50%;
-      }
+  .header-content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "logo menu"
+      "search search";
+    gap: 10px;
+  }
+  
+  .logo-section {
+    grid-area: logo;
+  }
 
-      .search-bar {
-        flex: 0 0 100%;
-        order: 3;
-        margin-top: 10px;
-      }
+  .search-section {
+    grid-area: search;
+    justify-content: stretch;
+  }
+  
+  .menu-section {
+    grid-area: menu;
+  }
 
-      .main-container {
-        flex-direction: column;
-      }
+  .search-bar {
+    max-width: 100%;
+    margin: 10px 0 0 0;
+  }
 
-      .main-content {
-        margin-right: 0;
-        margin-bottom: 40px;
-      }
+  .nav-menu {
+    right: 20px;
+    max-width: calc(100% - 40px);
+  }
 
-      .sidebar {
-        width: 100%;
-      }
-    }
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
