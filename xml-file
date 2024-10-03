@@ -1,0 +1,774 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+    <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200' rel='stylesheet'/>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:blog.title/></title>
+    <b:include data='blog' name='all-head-content'/>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
+<b:skin><![CDATA[
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Variables */
+:root {
+  /* Base colors */
+  --color-header-background: #212121;
+  --color-background: #292929;
+  --color-surface: #292929;
+  --color-primary: #222327;
+  --color-secondary: #03DAC6;
+  --color-on-background: #E1E1E1;
+  --color-on-surface: #FFFFFF;
+  --menu-bg-color: #1E2128; /* Customizable background color for hamburger dropdown */
+  --notification-bg-color: #1E2128; /* Customizable background color for notification dropdown */
+  --dropdown-border-radius: 12px; /* Change this value for rounder or less rounded dropdowns */
+  --text-color: #FFFFFF; /* Text color for links and notifications */
+  --hover-bg-color: #292929; /* Background color on hover */
+
+  /* Search Bar Styling */
+  --color-search-default: #3D3D3D;
+  --color-search-hover: #292929;
+
+  /* Main content styling */
+  --main-content-bg: #3D3D3D;
+  --main-content-radius: 20px;
+  --main-content-padding: 30px;
+
+  /* Sidebar styling */
+  --sidebar-width: 430px;
+  --sidebar-bg: #3D3D3D;
+  --sidebar-radius: 20px;
+  --sidebar-padding: 20px;
+
+  /* Dropdown Menu */
+  --color-dropdown-background: #3D3D3D;
+
+  /* Footer */
+  --color-footer-background: #212121;
+
+  /* Fonts */
+  --font-main: 'Roboto', sans-serif;
+  --font-heading: 'Poppins', sans-serif;
+
+  /* Layout positioning */
+  --header-height: 60px;
+}
+
+/* Global Styles */
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Layout */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.header-container {
+  background-color: var(--color-header-background);
+  height: var(--header-height);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Left Section: Logos */
+.left-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 200px; /* Adjust distance from the left edge */
+}
+
+.logo1-container, .logo2-container {
+  margin-right: 20px;
+  height: 100%;
+}
+
+.header-image {
+  max-height: calc(var(--header-height) - 4px);
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Center Section: Search Bar */
+.center-section {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar {
+  width: 600px;
+  height: 40px;
+  position: relative;
+}
+
+.search-bar form {
+  display: flex;
+  background-color: var(--color-search-default);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-on-background);
+  outline: none;
+}
+
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface);
+}
+
+.search-bar:hover form,
+.search-bar:focus-within form {
+  background-color: var(--color-search-hover);
+}
+
+.search-bar input:focus,
+.search-bar button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Right Section: Hamburger Menu and Notification Bell */
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 200px; /* Adjust distance from the right edge */
+}
+
+.notification-toggle, .menu-toggle {
+  margin-left: 20px;
+}
+
+#hamburger-menu, .notification-bell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.material-symbols-rounded {
+  font-size: 28px;
+  color: var(--color-heading);
+  transition: color 0.3s ease;
+}
+
+.material-symbols-rounded:hover {
+  color: var(--color-link-hover);
+}
+
+/* Navigation Menu and Notification Dropdown */
+.nav-menu, .notification-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--menu-bg-color);
+  border-radius: var(--dropdown-border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  max-width: 250px;
+  overflow: hidden;
+  width: max-content;
+}
+
+.nav-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  background-color: var(--hover-bg-color);
+}
+
+.notification-dropdown-header {
+  padding: 15px;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+}
+
+.notification-view-all {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.notification-view-all a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.notification-view-all a:hover {
+  text-decoration: underline;
+}
+
+/* Show Dropdown Menus When Active */
+#hamburger-menu.open + #nav-menu,
+.notification-bell.open + .notification-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Main Container */
+.main-container {
+    max-width: 1660px; /* Maximum width */
+    margin: 40px auto 0; /* Center the container with margin */
+    padding: 20px; /* Space inside the main container */
+    background-color: #fff; /* Background color for content area */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertical alignment of child elements */
+    gap: 40px; /* Space between child elements */
+}
+
+/* Main Content Wrapper */
+.main-content-wrapper {
+    background-color: var(--main-content-bg); /* Background color from variable */
+    border-radius: var(--main-content-radius); /* Rounded corners from variable */
+    padding: var(--main-content-padding); /* Padding from variable */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* General Container for other sections */
+.container {
+    max-width: 1300px; /* Maximum width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background-color: #f0f0f0; /* Background color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Sidebar Wrapper */
+.sidebar-wrapper {
+  width: 100%; /* Full width to take up the available space */
+  max-width: 432px; /* Set the maximum width to 432px */
+  margin: 0 auto; /* Center the sidebar */
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--sidebar-bg); /* Background color from variable */
+  border-radius: var(--sidebar-radius); /* Rounded corners from variable */
+  padding: var(--sidebar-padding); /* Padding from variable */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  width: 100%; /* Make sure the sidebar takes the full width of the wrapper */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+
+/* Footer */
+.footer-container {
+  background-color: var(--color-footer-background);
+  color: var(--color-on-surface);
+  padding: 40px 0;
+  margin-top: 60px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "logo menu"
+      "search search";
+    gap: 10px;
+  }
+
+  .left-section {
+    grid-area: logo;
+  }
+
+  .center-section {
+    grid-area: search;
+    justify-content: stretch;
+  }
+
+  .right-section {
+    grid-area: menu;
+  }
+
+  .search-bar {
+    max-width: 100%;
+    margin: 10px 0 0 0;
+  }
+
+  .nav-menu, .notification-dropdown {
+    right: 20px;
+    max-width: calc(100% - 40px);
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-content-wrapper,
+  .sidebar-wrapper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .main-content-wrapper,
+  .sidebar-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .main-content-wrapper {
+    width: calc(100% - var(--sidebar-width) - 40px);
+  }
+
+  .sidebar-wrapper {
+    width: var(--sidebar-width);
+  }
+}
+]]></b:skin>
+        
+</head>
+  <body>
+ <!-- Header -->
+    <header class='header-container'>
+        <div class='header-content'>
+            <!-- Left Section: Logos -->
+            <div class='left-section'>
+                <div class='logo1-container'>
+                    <a href='/'>
+                        <img alt='Wandering Wikis' class='header-image logo1' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrmm-aC7Szsf3673eiTjWjlOM4kca1ZSh2JtE7a_9r1AhBq-pVLvSweu6p91YNKifGDAgvv0n97XQH0HuUANlO2MqnTwkaHjSBYlF_Oa4ietKHz8mE_n3GlEV8ijZYu__qwXpbWdmI_t5B24U6NOSUMlEnsIatQsIuRCAmfeCqqq0qovPtx9uthNbN/s1600/image.png'/>
+                    </a>
+                </div>
+                <div class='logo2-container'>
+                    <a href='/'>
+                        <img alt='Wandering Wikis Text' class='header-image logo2' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh17UIt8L3fREMuV8YSvxH9V2CMeGEw1FNopgOMCVbY0OdKbM-zSZ79p0WhA2U1DUxh_Ze6yBb1aq4J82Df4kOWrXb9TSljTwFYGNU5WldULXpvw6f5nEzdyV9KB5mAg-CgKEHricyrer0H92wuYjjfAHw-LilPlrDYborZIRJxA27pdAGMoVfvhQzI/s1600/Wandering%20Wikis.png'/>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Center Section: Search Bar -->
+            <div class='center-section'>
+                <div class='search-bar'>
+                    <form action='/search' method='get' role='search'>
+                        <input name='q' placeholder='Search...' type='search'/>
+                        <button class='search-bar-submit'>
+                            <span class='material-symbols-rounded'>search</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Section: Hamburger Menu and Notification Bell -->
+            <div class='right-section'>
+                <!-- Hamburger Menu -->
+                <div class='menu-toggle'>
+                    <button id='hamburger-menu'>
+                        <span class='material-symbols-rounded'>menu</span>
+                    </button>
+                </div>
+
+                <!-- Notification Bell -->
+                <div class='notification-toggle'>
+                    <button class='notification-bell' id='notification-bell'>
+                        <span class='material-symbols-rounded'>notifications</span>
+                        <span class='notification-badge' style='display: none;'>0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Menu (Hidden by default) -->
+        <nav class='nav-menu' id='nav-menu'>
+            <ul>
+                <li><a href='/'>Home</a></li>
+                <li><a href='/p/about.html'>About</a></li>
+                <li><a href='/p/contact.html'>Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Notification Dropdown (Hidden by default) -->
+        <div class='notification-dropdown' id='notification-dropdown'>
+            <div class='notification-dropdown-header'>Recent Posts</div>
+            <div class='notification-list' id='notification-list'>
+                <!-- Recent posts will be dynamically inserted here -->
+            </div>
+            <div class='notification-view-all'>
+                <a href='/p/recent-posts.html'>View All Recent Posts</a>
+            </div>
+        </div>
+    </header>
+
+  <!-- JavaScript for Menu and Notifications -->
+<b:section id='javascript-section' maxwidgets='1' showaddelement='no'>
+  <b:widget id='HTML2' locked='false' title='JavaScript' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[
+        <script type='text/javascript'>
+          document.addEventListener('DOMContentLoaded', function() {
+              const hamburgerMenu = document.getElementById('hamburger-menu');
+              const navMenu = document.getElementById('nav-menu');
+              const notificationBell = document.getElementById('notification-bell');
+              const notificationDropdown = document.getElementById('notification-dropdown');
+
+              // Toggle Hamburger Menu
+              hamburgerMenu.addEventListener('click', function(event) {
+                  event.stopPropagation();
+                  navMenu.classList.toggle('active');
+                  hamburgerMenu.classList.toggle('open');
+                  if (notificationDropdown) {
+                      notificationDropdown.classList.remove('active');
+                      notificationBell.classList.remove('open');
+                  }
+              });
+
+              // Toggle Notification Dropdown
+              notificationBell.addEventListener('click', function(event) {
+                  event.stopPropagation();
+                  notificationDropdown.classList.toggle('active');
+                  notificationBell.classList.toggle('open');
+                  if (navMenu) {
+                      navMenu.classList.remove('active');
+                      hamburgerMenu.classList.remove('open');
+                  }
+              });
+
+              // Close menus when clicking outside
+              document.addEventListener('click', function(event) {
+                  if (navMenu && !navMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                      navMenu.classList.remove('active');
+                      hamburgerMenu.classList.remove('open');
+                  }
+                  if (notificationDropdown && !notificationDropdown.contains(event.target) && !notificationBell.contains(event.target)) {
+                      notificationDropdown.classList.remove('active');
+                      notificationBell.classList.remove('open');
+                  }
+              });
+          });
+        </script>
+      ]]></b:widget-setting>
+    </b:widget-settings>
+  </b:widget>
+</b:section>
+         <div class='page'>
+    <div class='bg-photo-overlay'></div>
+    <div class='bg-photo-container'>
+        <div class='bg-photo'></div>
+    </div>
+
+  <!-- New Container -->
+<div class='container'>
+    <div class='main-container'>
+        <!-- Featured Post Section -->
+        <b:section id='featured-post-section' name='Featured Post Section' showaddelement='yes'>
+            <b:widget id='FeaturedPost1' locked='true' title='Featured Post' type='FeaturedPost' visible='true'>
+                <b:widget-settings>
+                    <b:widget-setting name='showSnippet'>true</b:widget-setting>
+                    <b:widget-setting name='showPostTitle'>true</b:widget-setting>
+                    <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+                    <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                    <b:include name='widget-title'/>
+                    <div class='widget-content'>
+                        <b:include name='snippetedPosts'/>
+                    </div>
+                </b:includable>
+            </b:widget>
+        </b:section>
+         <!-- Popular Posts Section -->
+        <b:section id='popular-posts-section' name='Popular Posts Section' showaddelement='yes'>
+            <b:widget id='PopularPosts1' locked='true' title='Popular Posts' type='PopularPosts' visible='true'>
+                <b:widget-settings>
+                    <b:widget-setting name='numItemsToShow'>5</b:widget-setting>
+                    <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+                    <b:widget-setting name='showSnippets'>true</b:widget-setting>
+                </b:widget-settings>
+                <b:includable id='main' var='this'>
+                    <b:include name='widget-title'/>
+                    <div class='widget-content'>
+                        <b:include name='snippetedPosts'/>
+                    </div>
+                </b:includable>
+            </b:widget>
+        </b:section>
+    </div>
+</div>
+ <!-- Sidebar Container (to the right) --> 
+<b:section id='sidebar-section' name='Sidebar' showaddelement='yes'>
+    <b:widget id='Label1' locked='false' title='Categories' type='Label' visible='true'>
+        <b:widget-settings>
+            <b:widget-setting name='sorting'>FREQUENCY</b:widget-setting>
+            <b:widget-setting name='display'>LIST</b:widget-setting>
+            <b:widget-setting name='showType'>ALL</b:widget-setting>
+            <b:widget-setting name='showFreqNumbers'>true</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main' var='this'>
+            <div class='widget-content'>
+                <b:include cond='data:this.display == "list"' name='list'/>
+            </div>
+        </b:includable>
+    </b:widget>
+
+    <!-- Archive Section -->
+    <b:widget id='BlogArchive1' locked='false' title='Archives' type='BlogArchive' visible='true'>
+        <b:widget-settings>
+            <b:widget-setting name='showStyle'>FLAT</b:widget-setting>
+            <b:widget-setting name='yearPattern'>yyyy</b:widget-setting>
+            <b:widget-setting name='showWeekEnd'>true</b:widget-setting>
+            <b:widget-setting name='monthPattern'>MMMM yyyy</b:widget-setting>
+            <b:widget-setting name='dayPattern'>MMM dd</b:widget-setting>
+            <b:widget-setting name='weekPattern'>MM/dd</b:widget-setting>
+            <b:widget-setting name='chronological'>false</b:widget-setting>
+            <b:widget-setting name='showPosts'>true</b:widget-setting>
+            <b:widget-setting name='frequency'>MONTHLY</b:widget-setting>
+        </b:widget-settings>
+        <b:includable id='main' var='this'>
+            <div class='widget-content'>
+                <b:include name='list'/>
+            </div>
+        </b:includable>
+    </b:widget>
+
+    <!-- Link to View All Categories -->
+    <div class='view-all-categories'>
+        <a class='view-all-link' href='/p/categories.html'>View All Categories</a>
+    </div>
+</b:section> <!-- Correctly closing the sidebar section -->
+
+<!-- Footer -->
+<footer class='footer-container'>
+  <div class='py-5 fs-7' id='footer-main'>
+    <div class='container px-3'>
+      <b:section class='row row-cols-sm-2 row-cols-lg-4 justify-content-evenly' id='footer-widget' showaddelement='yes'>
+        <b:widget id='HTML21' locked='false' title='About Us' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ultricies, sapien et auctor bibendum, magna urna posuere purus, at vehicula erat est ac sem.</p>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div style='text-transform: none;'>
+              <b:include name='MoriHtml'/>
+            </div>
+          </b:includable>
+        </b:widget>
+
+        <b:widget id='HTML22' locked='false' title='Quick Links' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="/" target="_blank" rel="noopener noreferrer">Home</a></li>
+                  <li><a href="https://forms.gle/xFPhnupKVtzy2UjM7" target="_blank" rel="noopener noreferrer">Submit Requests Here</a></li>
+                  <li><a href="https://sites.google.com/view/wanderingwikis/about" target="_blank" rel="noopener noreferrer">About</a></li>
+                  <li><a href="/products" target="_blank" rel="noopener noreferrer">Products</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="/blog" target="_blank" rel="noopener noreferrer">Blog</a></li>
+                  <li><a href="/contact" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                  <li><a href="/faq" target="_blank" rel="noopener noreferrer">FAQ</a></li>
+                  <li><a href="https://www.redbubble.com/people/wanderingwikis/shop" target="_blank" rel="noopener noreferrer">Merch</a></li>
+                </ul>
+              </div>
+            </div>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div style='text-transform: none;'>
+              <b:include name='MoriHtml'/>
+            </div>
+          </b:includable>
+        </b:widget>
+
+        <b:widget id='HTML23' locked='false' title='Follow Us' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://facebook.com/wanderingwikis" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                  <li><a href="https://twitter.com/wanderingwikis" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                  <li><a href="https://instagram.com/wanderingwikis" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                  <li><a href="https://www.tumblr.com/wanderingwikis" target="_blank" rel="noopener noreferrer">Tumblr</a></li>
+                  <li><a href="https://odysee.com/@WanderingWikis" target="_blank" rel="noopener noreferrer">Odysee</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://soundcloud.com/wandering-wikis" target="_blank" rel="noopener noreferrer">Soundcloud</a></li>
+                  <li><a href="https://youtube.com/@wanderingwikis" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                  <li><a href="https://pinterest.com/wanderingwikis" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+                  <li><a href="https://www.deviantart.com/wanderingwikis" target="_blank" rel="noopener noreferrer">DeviantArt</a></li>
+                  <li><a href="https://bsky.app/profile/wanderingwikis.bsky.social" target="_blank" rel="noopener noreferrer">BlueSky</a></li>
+                </ul>
+              </div>
+            </div>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div style='text-transform: none;'>
+              <b:include name='MoriHtml'/>
+            </div>
+          </b:includable>
+        </b:widget>
+
+        <b:widget id='HTML26' locked='false' title='Wiki Resources' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://commons.wikimedia.org" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a></li>
+                  <li><a href="https://www.wikiversity.org" target="_blank" rel="noopener noreferrer">Wikiversity</a></li>
+                  <li><a href="https://www.wiktionary.org" target="_blank" rel="noopener noreferrer">Wiktionary</a></li>
+                  <li><a href="https://www.wikibooks.org" target="_blank" rel="noopener noreferrer">WikiBooks</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a></li>
+                  <li><a href="https://www.wikinews.org" target="_blank" rel="noopener noreferrer">WikiNews</a></li>
+                  <li><a href="https://www.wikisource.org" target="_blank" rel="noopener noreferrer">WikiSource</a></li>
+                  <li><a href="https://www.wikivoyage.org" target="_blank" rel="noopener noreferrer">Wikivoyage</a></li>
+                </ul>
+              </div>
+            </div>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'>
+            <div style='text-transform: none;'>
+              <b:include name='MoriHtml'/>
+            </div>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </div>
+  </div>
+  <div class='py-3 fs-7 text-center' id='socket'>
+    <b:section class='container px-3' id='copyright' maxwidgets='1' showaddelement='no'>
+      <b:widget id='HTML25' locked='true' title='Copyright' type='HTML' version='2' visible='true'>
+        <b:widget-settings>
+          <b:widget-setting name='content'/>
+        </b:widget-settings>
+        <b:includable id='main'>
+          <div style='text-transform: none;'>
+            <b:include name='MoriCopyRight'/>
+          </div>
+        </b:includable>
+      </b:widget>
+    </b:section>
+  </div>
+</footer>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var categoriesContainer = document.getElementById('categories-container');
+    if (categoriesContainer) {
+        // Example categories, replace this with dynamic fetching if necessary
+        const categories = ['Category 1', 'Category 2', 'Category 3'];
+        categories.forEach(function(category) {
+            const div = document.createElement('div');
+            div.textContent = category; // Create a text element for each category
+            categoriesContainer.appendChild(div);
+        });
+    }
+});
+</script>
+
+
+<!-- label limit can delete -->
+<b:section id='javascript-section' maxwidgets='1' showaddelement='no'>
+  <b:widget id='HTML2' locked='false' title='JavaScript' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'><![CDATA[
+        <script type='text/javascript'>
+          document.addEventListener('DOMContentLoaded', function() {
+              var labelWidget = document.querySelector('#Label1 .widget-content'); // Adjusted selector
+              if (labelWidget) {
+                  var labels = labelWidget.querySelectorAll('li'); // Ensure labels are in <li>
+                  for (var i = 9; i < labels.length; i++) {
+                      labels[i].style.display = 'none';
+                  }
+              }
+          });
+        </script>
+      ]]></b:widget-setting>
+    </b:widget-settings>
+  </b:widget>
+</b:section>
+  </body>
+</html>
