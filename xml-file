@@ -6,7 +6,10 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title><data:blog.title/></title>
     <b:include data='blog' name='all-head-content'/>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'/>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/gh/yourusername/yourrepository/enhancements-wandering-wikis-theme.js' defer></script>
+
+</head>
 <b:skin><![CDATA[
 /* Reset */
 *, *::before, *::after {
@@ -402,9 +405,7 @@ a:hover {
     width: var(--sidebar-width);
   }
 }
-]]></b:skin>
-        
-</head>
+]]></b:skin> 
   <body>
  <!-- Header -->
     <header class='header-container'>
@@ -526,15 +527,15 @@ a:hover {
     </b:widget-settings>
   </b:widget>
 </b:section>
-         <div class='page'>
+    <div class='page'>
     <div class='bg-photo-overlay'></div>
     <div class='bg-photo-container'>
-        <div class='bg-photo'></div>
+      <div class='bg-photo'></div>
     </div>
 
   <!-- New Container -->
-<div class='container'>
-    <div class='main-container'>
+ <div class='container'>
+      <div class='main-container'>
         <!-- Featured Post Section -->
         <b:section id='featured-post-section' name='Featured Post Section' showaddelement='yes'>
             <b:widget id='FeaturedPost1' locked='true' title='Featured Post' type='FeaturedPost' visible='true'>
@@ -731,44 +732,5 @@ a:hover {
     </b:section>
   </div>
 </footer>
-
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var categoriesContainer = document.getElementById('categories-container');
-    if (categoriesContainer) {
-        // Example categories, replace this with dynamic fetching if necessary
-        const categories = ['Category 1', 'Category 2', 'Category 3'];
-        categories.forEach(function(category) {
-            const div = document.createElement('div');
-            div.textContent = category; // Create a text element for each category
-            categoriesContainer.appendChild(div);
-        });
-    }
-});
-</script>
-
-
-<!-- label limit can delete -->
-<b:section id='javascript-section' maxwidgets='1' showaddelement='no'>
-  <b:widget id='HTML2' locked='false' title='JavaScript' type='HTML' version='2' visible='true'>
-    <b:widget-settings>
-      <b:widget-setting name='content'><![CDATA[
-        <script type='text/javascript'>
-          document.addEventListener('DOMContentLoaded', function() {
-              var labelWidget = document.querySelector('#Label1 .widget-content'); // Adjusted selector
-              if (labelWidget) {
-                  var labels = labelWidget.querySelectorAll('li'); // Ensure labels are in <li>
-                  for (var i = 9; i < labels.length; i++) {
-                      labels[i].style.display = 'none';
-                  }
-              }
-          });
-        </script>
-      ]]></b:widget-setting>
-    </b:widget-settings>
-  </b:widget>
-</b:section>
   </body>
 </html>
