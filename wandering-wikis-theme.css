@@ -7,14 +7,40 @@
 
 /* Variables */
 :root {
-  --color-background: #121212;
-  --color-surface: #1E1E1E;
-  --color-primary: #08080C;
-  --color-secondary: #03DAC6;
-  --color-on-background: #E1E1E1;
-  --color-on-surface: #FFFFFF;
+  /* Base colors */
+  --color-header-background: #212121;
+  --color-background: #292929;
+  --color-surface: #292929;
+  --color-primary: #222327;  /* 4% Red, 3.4% Green, 16% Blue difference from header */
+  --color-secondary: #03DAC6;  /* Kept as is */
+  --color-on-background: #E1E1E1;  /* Kept as is */
+  --color-on-surface: #FFFFFF;  /* Kept as is */
+
+ /* Search Bar Styling */
+--color-search-field: #3D3D3D;  /* Lighter than background */
+--color-search-field-hover: #292929;  /* Same as background, darker on hover */
+--color-search-button: #3D3D3D;  /* Same as search field */
+--color-search-button-hover: #292929;  /* Same as search field hover */
+
+  /* Main content styling */
+  --main-content-bg: #3D3D3D;  /* 35% Red, 34.9% Green, 33.3% Blue difference from header */
+  --main-content-radius: 20px;
+  --main-content-padding: 30px;
+
+  /* Sidebar styling */
+  --sidebar-width: 430px;
+  --sidebar-bg: #3D3D3D;  /* 35% Red, 34.9% Green, 33.3% Blue difference from header */
+  --sidebar-radius: 20px;
+  --sidebar-padding: 20px;
+
+  /* Footer */
+  --color-footer-background: #212121;  /* Same as header */
+
+  /* Fonts */
   --font-main: 'Roboto', sans-serif;
   --font-heading: 'Poppins', sans-serif;
+
+  /* Layout positioning */
   --logo-x: -190px;
   --search-x: 0px;
   --hamburger-x: 200px;
@@ -26,8 +52,6 @@ body {
   font-family: var(--font-main);
   background-color: var(--color-background);
   color: var(--color-on-background);
-  margin: 0;
-  padding: 0;
   line-height: 1.6;
 }
 
@@ -49,7 +73,7 @@ a:hover {
 
 /* Header */
 .header-container {
-  background-color: var(--color-surface);
+  background-color: var(--color-header-background);
   padding: 10px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: relative;
@@ -72,21 +96,20 @@ a:hover {
 .logo-section {
   justify-content: flex-start;
   height: 100%;
-  display: flex;
-  align-items: center;
   transform: translateX(var(--logo-x));
-  transition: transform 0.3s ease;
 }
 
 .search-section {
   justify-content: center;
   transform: translateX(var(--search-x));
-  transition: transform 0.3s ease;
 }
 
 .menu-section {
   justify-content: flex-end;
   transform: translateX(var(--hamburger-x));
+}
+
+.logo-section, .search-section, .menu-section {
   transition: transform 0.3s ease;
 }
 
@@ -106,9 +129,14 @@ a:hover {
 
 .search-bar form {
   display: flex;
-  background-color: var(--color-background);
+  background-color: var(--color-search-field);
   border-radius: 20px;
   overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar form:hover {
+  background-color: var(--color-search-field-hover);
 }
 
 .search-bar input {
@@ -117,26 +145,67 @@ a:hover {
   border: none;
   background: transparent;
   color: var(--color-on-background);
+  transition: background-color 0.3s ease;
+}
+
+.search-bar input:hover,
+.search-bar input:focus {
+  background-color: var(--color-search-field-hover);
 }
 
 .search-bar button {
-  background: var(--color-primary);
+  background-color: var(--color-search-button);
   border: none;
   padding: 10px 15px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.search-bar .icon {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-on-surface);
+.search-bar button:hover {
+  background-color: var(--color-search-button-hover);
+}
+
+/* Material Symbols Rounded */
+.material-symbols-rounded {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  font-size: 24px;
+  color: var(--color-on-surface);
+  transition: color 0.3s ease;
+}
+
+.material-symbols-rounded.filled {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+}
+
+.material-symbols-rounded.bold {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48;
+}
+
+.material-symbols-rounded.large {
+  font-size: 48px;
+}
+
+.search-icon {
+  font-variation-settings:
+  'FILL' var(--icon-fill, 0),
+  'wght' var(--icon-weight, 400),
+  'GRAD' var(--icon-grade, 0),
+  'opsz' var(--icon-optical-size, 24);
 }
 
 /* Hamburger Menu */
-.menu-toggle {
-  cursor: pointer;
-}
-
 #hamburger-menu {
   background: none;
   border: none;
@@ -146,15 +215,12 @@ a:hover {
   height: 55px;
 }
 
-#hamburger-menu .icon {
-  width: 35px;
-  height: 35px;
-  fill: var(--color-on-surface);
-  transition: fill 0.3s ease;
+#hamburger-menu .material-symbols-rounded {
+  font-size: 28px;
 }
 
-#hamburger-menu:hover .icon {
-  fill: var(--color-primary);
+#hamburger-menu:hover .material-symbols-rounded {
+  color: var(--color-primary);
 }
 
 /* Navigation Menu */
@@ -204,25 +270,41 @@ a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Main Content */
+/* Main Container */
 .main-container {
+  max-width: 1660px;
+  margin: 40px auto 0;
+  padding: 0 20px;
   display: flex;
-  margin-top: 40px;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.main-content {
-  flex: 1;
-  margin-right: 40px;
+/* Main Content */
+.main-content-wrapper {
+  background-color: var(--main-content-bg);
+  border-radius: var(--main-content-radius);
+  padding: var(--main-content-padding);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Sidebar */
+.sidebar-wrapper {
+  width: 100%;
+  max-width: var(--sidebar-width);
+  margin: 0 auto;
+}
+
 .sidebar {
-  width: 300px;
+  background-color: var(--sidebar-bg);
+  border-radius: var(--sidebar-radius);
+  padding: var(--sidebar-padding);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Footer */
 .footer-container {
-  background-color: var(--color-surface);
+  background-color: var(--color-footer-background);
   color: var(--color-on-surface);
   padding: 40px 0;
   margin-top: 60px;
@@ -272,11 +354,37 @@ a:hover {
     flex-direction: column;
   }
 
-  .main-content {
-    margin-right: 0;
-    margin-bottom: 40px;
+  .main-content-wrapper,
+  .sidebar-wrapper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1199px) {
+  .main-container {
+    flex-direction: column;
   }
 
-  .sidebar {
+  .main-content-wrapper,
+  .sidebar-wrapper {
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  .main-content-wrapper {
+    width: calc(100% - var(--sidebar-width) - 40px);
+  }
+
+  .sidebar-wrapper {
+    width: var(--sidebar-width);
   }
