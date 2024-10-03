@@ -159,7 +159,6 @@ a:hover {
 .search-bar:focus-within form {
   background-color: var(--color-search-hover);
 }
-
 .search-bar input:focus,
 .search-bar button:focus {
   outline: none;
@@ -176,7 +175,6 @@ a:hover {
   color: var(--color-on-surface);
   transition: color 0.3s ease;
 }
-
 .material-symbols-rounded.filled {
   font-variation-settings:
   'FILL' 1,
@@ -192,11 +190,9 @@ a:hover {
   'GRAD' 0,
   'opsz' 48;
 }
-
 .material-symbols-rounded.large {
   font-size: 48px;
 }
-
 .search-icon {
   font-variation-settings:
   'FILL' var(--icon-fill, 0),
@@ -223,7 +219,6 @@ a:hover {
 #hamburger-menu:hover .material-symbols-rounded {
   color: var(--color-primary);
 }
-
 /* Navigation Menu */
 .nav-menu {
   position: absolute;
@@ -287,6 +282,14 @@ a:hover {
   border-radius: var(--main-content-radius);
   padding: var(--main-content-padding);
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+/* Question This */
+.featured-post-section {
+  margin-bottom: 2rem;
+}
+/* Question This */
+.latest-posts-section {
+  /* Add any specific styling for your latest posts section */
 }
 
 /* Sidebar */
