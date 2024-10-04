@@ -27,12 +27,15 @@ document.addEventListener('DOMContentLoaded', function() {
     var notificationList = document.getElementById('notification-list');
 
     function fetchRecentPosts() {
+        console.log('Fetching recent posts...');
         fetch('/p/recent-posts.html')
             .then(response => response.text())
             .then(html => {
+                console.log('Received HTML:', html);
                 var parser = new DOMParser();
                 var doc = parser.parseFromString(html, 'text/html');
                 var recentPosts = doc.querySelectorAll('#recent-posts-container .recent-post-item');
+                console.log('Found recent posts:', recentPosts.length);
                 
                 notificationList.innerHTML = ''; // Clear existing content
                 recentPosts.forEach((post, index) => {
@@ -42,7 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 if (notificationList.children.length === 0) {
+                    console.log('No recent posts found');
                     notificationList.innerHTML = '<div class="notification-item">No recent posts found</div>';
+                } else {
+                    console.log('Added recent posts to dropdown');
                 }
             })
             .catch(error => {
@@ -54,10 +60,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Modified notification toggle event listener
     notificationToggle.addEventListener('click', function(e) {
         e.stopPropagation();
+        console.log('Notification bell clicked');
         if (!this.classList.contains('open')) {
             fetchRecentPosts();
         }
         toggleDropdown(this, notificationDropdown);
+        console.log('Dropdown visibility:', notificationDropdown.style.display);
     });
 
     document.addEventListener('click', function(e) {
