@@ -1,96 +1,78 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:js='true' b:layoutsVersion='3' b:render='true' b:responsive='true'
-      b:templateUrl='https://github.com/MoribundInstitute/wandering-wikis-theme/blob/cf83222b1770d4e26a5313642c45d6cde0a59cb5/xml-file'
-      expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' 
-      xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' 
-      xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:js='true' b:layoutsVersion='3' b:render='true' b:responsive='true' b:templateUrl='https://github.com/MoribundInstitute/wandering-wikis-theme/blob/cf83222b1770d4e26a5313642c45d6cde0a59cb5/xml-file' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 
 <head>
     <meta charset='UTF-8'/>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport'/>
     <title><data:blog.title/></title>
     
-  <!-- Meta Description -->
-<b:if cond='data:blog.metaDescription'>
-    <meta expr:content='data:blog.metaDescription' name='description'/>
-<b:else/>
-    <meta name="description" content="Welcome to Wandering Wikis—a project dedicated to making encyclopedias fun and engaging. Explore knowledge with MoribundMurdoch through lively discussions, creative presentations, and in-depth walkthroughs."/>
-</b:if>
-
-  <!-- SEO Meta Tags -->
-<meta name='robots' content='index, follow'/>
-<meta name='keywords' content='blog, wiki, Blogger, custom template, SEO, Moribund Institute, Finitude Fighters, WanderingWikis, MoribundMurdoch'/>
-<meta name='author' content='MoribundMurdoch'/>
-<meta name='publisher' content='Moribund Institute'/>
-<meta name='organization' content='Finitude Fighters'/>
- <meta name='geo.region' content='EE, TW'/>
-    <meta name='geo.placename' content='Estonia, Taiwan'/>
-    <meta name='geo.position' content='59.437,24.753; 23.6978,120.9605'/>
-    <meta name='ICBM' content='59.437,24.753; 23.6978,120.9605'/>
-
-  <!-- Open Graph Meta Tags for Social Media -->
-<meta property='og:title' content='<data:blog.title/>'/>
-<meta property='og:type' content='website'/>
-<meta property='og:url' content='<data:blog.homepageUrl/>'/>
-<meta property='og:image' expr:content='data:blog.headerImageUrl'/>
-<meta property='og:image:alt' content='WanderingWikis - Fun exploration of encyclopedias'/>
-<meta property='og:site_name' content='WanderingWikis'/>
-<meta property='og:locale' content='en_US'/>
-<meta property='og:description' expr:content='data:blog.metaDescription'/>
-
-<!-- Dynamic Open Graph Tags for Blog Posts -->
-<b:if cond='data:blog.pageType == "item"'>
-    <meta property='og:title' expr:content='data:post.title'/>
-    <meta property='og:description' expr:content='data:post.snippet'/>
-    <meta property='og:image' expr:content='data:post.featuredImage'/>
-    <meta property='og:url' expr:content='data:post.url'/>
-    <meta property='og:type' content='article'/>
-    <meta property='article:author' content='MoribundMurdoch'/>
-    <meta property='article:published_time' expr:content='data:post.date.iso8601'/>
-    <meta property='article:section' expr:content='data:post.labels[0]'/>
-</b:if>
-
-  <!-- Twitter Card Meta Tags -->
-<meta name='twitter:card' content='summary_large_image'/>
-<meta name='twitter:title' content='<data:blog.title/>'/>
-<meta name='twitter:description' expr:content='data:blog.metaDescription'/>
-<meta name='twitter:image' expr:content='data:blog.headerImageUrl'/>
-<meta name='twitter:site' content='@WanderingWikis'/>
-<meta name='twitter:creator' content='@WanderingWikis'/>
-<meta name='twitter:header_image' content='https://pbs.twimg.com/profile_banners/1389364887151943680/1628496425/1500x500'/>
-<meta name='twitter:profile_image' content='https://pbs.twimg.com/profile_images/1424643379598610434/EBWtqrVr_400x400.jpg'/>
-<meta name='twitter:description' content='Join the Wikipedia Memorists on the Wikipedia front opposing Wikipedia Oblivescence!'/>
-
-    
-    <!-- External Stylesheets -->
-    <link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap' rel='stylesheet'/>
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
-    <link href='https://example.com/wiki-custom-stylesheet.css' rel='stylesheet'/>
-    
-    <!-- Favicon -->
-<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEirS8EZyr0fB8T9_J_CgAqHSvo45LzuQo3ORhTDDDXDnghClftm8yKU-cd5nhCanmF1IHUFUDSriW0_yB5EsVFe6A2rw5kWiT9xKW3L1NpFDOVOHA9Bg_upUXQW2yGCa9nonas6Tq_xHXZdNmnwLB6CfHPpI4AKIEtHsm6kM5fJ687hSxs3xzAy1zov' sizes='32x32'/>
-<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEiXtxR9FEMNUKki91kuYeTBLtvMQiR4pL9gA85pF0jMheNzJ8y65pwYPfWKOvZkIAiT4LUkBIFole8OWXZi8UMOUSRJkh3S0DQfl9CpPaoURE9kW8VtW1Rm6iisyWYGh-nyHkjk8dim0tR8gauiJQr4i_PQuFO6IbZ4cv2ROTAoDrPkaYX1vMuyFz31' sizes='16x16'/>
-<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEhliyPHSG70AIyZC-8u4RQl1KAa_o_nhOQzBZh44Hxy03WcZalgOZ9jF2r1H5cwXAl62v6rZr0cJ28N27csRqs3ID_HxW2-b9MSO44QKoIlRyRuW-nQ0DjeOqxJzmMuqXhFGHugMd-CmoTRMaCsXmwHQ3ik7_zA990w-DSOw8KvTjRCTAneK13ZqO_h' sizes='150x150'/>
-<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEhvfWUTfiau0iN_pBNObcHuaSoj36TncONNlWrj41WantKm84qGAcmGIjfk-QsjjQGV9C59aVRzyikmJYIlCKFnzVRkDfhT-pXKLfduf1j2aevpcO-VU0HLIOuo-VR_fCTCgUwLvByrqyYRqWIe4eGarDoc1_7N_5FCWxKm5Bwu91Y2Vo57oziVwR1p' sizes='180x180'/>
-<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEhb1jrsME2RHftF_L-yeA2VJg0XUWu36QTq9udGzS5ZovgL-heivERdQO8Gjc3O5gGa3AAysnx4yU4ZQSa6_rkw3Jj3L8pE-BqkvxMzuhDIBJ6Y9sstBIQ3-8uiRNly-i-trv90sA0QvcUUdnvGOsyBQlJMIYHmz4ZYgZttoxAymMo4htxgTIcOymiX' sizes='152x152'/>
-<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEjLexShxDJt4-aAyBa8_vUIF3JCP33FXWcWEmF8pgYcds_PEsSadZgpGoezZMi-eDn8k9SBaqSgOcMOxvhlrcmGOXC5IkEE8RRytoFvf5Rksy1JAaNoD2atjQjTz2ssI9V7wthL9rQYTn_D6u5C4NV_Ts7bLPc3eUC0bFmnfmEgqAjnLKKfP8tNPlXE' sizes='144x144'/>
-<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEgLwXSAwJzzwcrBL5A04enhzJCvInakwVrbJNGlaX2piZP9YYzrVkABIlftVyKxap-HqHetIYfQrKhghmRVg7Ra6ScYLJbZvN-x1V7tQbM9Lx59BpYpQEZiJfLu0uBZm0UX7vSJIVP6_UtcLYxt81kyJ3QNeVcgCGY-hpJPnuXF18RsCE6z9sTnh67G' sizes='96x96'/>
-
-    <!-- Analytics Script or Custom JavaScript -->
-    <script async src='https://example.com/analytics.js'></script>
-    
-    <!-- Conditional JavaScript for Specific Pages -->
-    <b:if cond='data:blog.pageType == "item"'>
-        <script>
-            (function() {
-                // Custom JavaScript for single post pages
-                console.log("Single post page script running for Wiki theme.");
-            })();
-        </script>
+    <!-- Meta Description -->
+    <b:if cond='data:blog.metaDescription'>
+        <meta expr:content='data:blog.metaDescription' name='description'/>
+    <b:else/>
+        <meta content='Welcome to Wandering Wikis—a project dedicated to making encyclopedias fun and engaging. Explore knowledge with MoribundMurdoch through lively discussions, creative presentations, and in-depth walkthroughs.' name='description'/>
     </b:if>
-    
-    <!-- Blogger Skin (CSS) -->
+
+    <!-- SEO Meta Tags -->
+    <meta content='index, follow' name='robots'/>
+    <meta content='blog, wiki, Blogger, custom template, SEO, Moribund Institute, Finitude Fighters, WanderingWikis, MoribundMurdoch' name='keywords'/>
+    <meta content='MoribundMurdoch' name='author'/>
+    <meta content='Moribund Institute' name='publisher'/>
+    <meta content='Finitude Fighters' name='organization'/>
+    <meta content='EE, TW' name='geo.region'/>
+    <meta content='Estonia, Taiwan' name='geo.placename'/>
+    <meta content='59.437,24.753; 23.6978,120.9605' name='geo.position'/>
+    <meta content='59.437,24.753; 23.6978,120.9605' name='ICBM'/>
+
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta expr:content='data:blog.title' property='og:title'/>
+    <meta content='website' property='og:type'/>
+    <meta expr:content='data:blog.homepageUrl' property='og:url'/>
+    <meta expr:content='data:blog.headerImageUrl' property='og:image'/>
+    <meta content='WanderingWikis - Fun exploration of encyclopedias' property='og:image:alt'/>
+    <meta content='WanderingWikis' property='og:site_name'/>
+    <meta content='en_US' property='og:locale'/>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+
+    <!-- Dynamic Open Graph Tags for Blog Posts -->
+    <b:if cond='data:blog.pageType == &quot;item&quot;'>
+        <meta expr:content='data:post.title' property='og:title'/>
+        <meta expr:content='data:post.snippet' property='og:description'/>
+        <meta expr:content='data:post.featuredImage' property='og:image'/>
+        <meta expr:content='data:post.url' property='og:url'/>
+        <meta content='article' property='og:type'/>
+        <meta content='MoribundMurdoch' property='article:author'/>
+        <meta expr:content='data:post.date.iso8601' property='article:published_time'/>
+        <meta expr:content='data:post.labels[0]' property='article:section'/>
+    </b:if>
+
+    <!-- Twitter Card Meta Tags -->
+    <meta content='summary_large_image' name='twitter:card'/>
+    <meta expr:content='data:blog.title' name='twitter:title'/>
+    <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    <meta expr:content='data:blog.headerImageUrl' name='twitter:image'/>
+    <meta content='@WanderingWikis' name='twitter:site'/>
+    <meta content='@WanderingWikis' name='twitter:creator'/>
+    <meta content='https://pbs.twimg.com/profile_banners/1389364887151943680/1628496425/1500x500' name='twitter:header_image'/>
+    <meta content='https://pbs.twimg.com/profile_images/1424643379598610434/EBWtqrVr_400x400.jpg' name='twitter:profile_image'/>
+    <meta content='Join the Wikipedia Memorists on the Wikipedia front opposing Wikipedia Oblivescence!' name='twitter:description'/>
+
+<!-- External Stylesheets -->
+<link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&amp;display=swap' rel='stylesheet'/>
+<link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+<link href='https://example.com/wiki-custom-stylesheet.css' rel='stylesheet'/>
+
+        <!-- Favicon -->
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEirS8EZyr0fB8T9_J_CgAqHSvo45LzuQo3ORhTDDDXDnghClftm8yKU-cd5nhCanmF1IHUFUDSriW0_yB5EsVFe6A2rw5kWiT9xKW3L1NpFDOVOHA9Bg_upUXQW2yGCa9nonas6Tq_xHXZdNmnwLB6CfHPpI4AKIEtHsm6kM5fJ687hSxs3xzAy1zov' rel='icon' sizes='32x32' type='image/png'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEiXtxR9FEMNUKki91kuYeTBLtvMQiR4pL9gA85pF0jMheNzJ8y65pwYPfWKOvZkIAiT4LUkBIFole8OWXZi8UMOUSRJkh3S0DQfl9CpPaoURE9kW8VtW1Rm6iisyWYGh-nyHkjk8dim0tR8gauiJQr4i_PQuFO6IbZ4cv2ROTAoDrPkaYX1vMuyFz31' rel='icon' sizes='16x16' type='image/png'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEhliyPHSG70AIyZC-8u4RQl1KAa_o_nhOQzBZh44Hxy03WcZalgOZ9jF2r1H5cwXAl62v6rZr0cJ28N27csRqs3ID_HxW2-b9MSO44QKoIlRyRuW-nQ0DjeOqxJzmMuqXhFGHugMd-CmoTRMaCsXmwHQ3ik7_zA990w-DSOw8KvTjRCTAneK13ZqO_h' rel='icon' sizes='150x150' type='image/png'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEhvfWUTfiau0iN_pBNObcHuaSoj36TncONNlWrj41WantKm84qGAcmGIjfk-QsjjQGV9C59aVRzyikmJYIlCKFnzVRkDfhT-pXKLfduf1j2aevpcO-VU0HLIOuo-VR_fCTCgUwLvByrqyYRqWIe4eGarDoc1_7N_5FCWxKm5Bwu91Y2Vo57oziVwR1p' rel='apple-touch-icon' sizes='180x180'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEhb1jrsME2RHftF_L-yeA2VJg0XUWu36QTq9udGzS5ZovgL-heivERdQO8Gjc3O5gGa3AAysnx4yU4ZQSa6_rkw3Jj3L8pE-BqkvxMzuhDIBJ6Y9sstBIQ3-8uiRNly-i-trv90sA0QvcUUdnvGOsyBQlJMIYHmz4ZYgZttoxAymMo4htxgTIcOymiX' rel='apple-touch-icon' sizes='152x152'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEjLexShxDJt4-aAyBa8_vUIF3JCP33FXWcWEmF8pgYcds_PEsSadZgpGoezZMi-eDn8k9SBaqSgOcMOxvhlrcmGOXC5IkEE8RRytoFvf5Rksy1JAaNoD2atjQjTz2ssI9V7wthL9rQYTn_D6u5C4NV_Ts7bLPc3eUC0bFmnfmEgqAjnLKKfP8tNPlXE' rel='apple-touch-icon' sizes='144x144'/>
+    <link href='https://blogger.googleusercontent.com/img/a/AVvXsEgLwXSAwJzzwcrBL5A04enhzJCvInakwVrbJNGlaX2piZP9YYzrVkABIlftVyKxap-HqHetIYfQrKhghmRVg7Ra6ScYLJbZvN-x1V7tQbM9Lx59BpYpQEZiJfLu0uBZm0UX7vSJIVP6_UtcLYxt81kyJ3QNeVcgCGY-hpJPnuXF18RsCE6z9sTnh67G' rel='icon' sizes='96x96' type='image/png'/>
+  
+<!-- Blogger Skin (CSS) -->
     <b:skin><![CDATA[
         /* Add your custom CSS here */
     ]]></b:skin>
