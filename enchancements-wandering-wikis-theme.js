@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Dropdown menu functionality
+    // Existing functionality
     const menuToggle = document.querySelector('#hamburger-menu');
     const notificationToggle = document.querySelector('.notification-bell');
     const navMenu = document.querySelector('#nav-menu');
@@ -23,8 +23,40 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleDropdown(this, navMenu);
     });
 
+    // New functionality for fetching recent posts
+    var notificationList = document.getElementById('notification-list');
+
+    function fetchRecentPosts() {
+        fetch('/p/recent-posts.html')
+            .then(response => response.text())
+            .then(html => {
+                var parser = new DOMParser();
+                var doc = parser.parseFromString(html, 'text/html');
+                var recentPosts = doc.querySelectorAll('#recent-posts-container .recent-post-item');
+                
+                notificationList.innerHTML = ''; // Clear existing content
+                recentPosts.forEach((post, index) => {
+                    if (index < 5) { // Limit to 5 posts in the dropdown
+                        notificationList.appendChild(post.cloneNode(true));
+                    }
+                });
+
+                if (notificationList.children.length === 0) {
+                    notificationList.innerHTML = '<div class="notification-item">No recent posts found</div>';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching recent posts:', error);
+                notificationList.innerHTML = '<div class="notification-item">Error loading recent posts</div>';
+            });
+    }
+
+    // Modified notification toggle event listener
     notificationToggle.addEventListener('click', function(e) {
         e.stopPropagation();
+        if (!this.classList.contains('open')) {
+            fetchRecentPosts();
+        }
         toggleDropdown(this, notificationDropdown);
     });
 
