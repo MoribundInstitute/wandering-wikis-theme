@@ -11,27 +11,52 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <title><data:blog.title/></title>
     
-    <!-- Meta Description -->
-    <b:if cond='data:blog.metaDescription'>
-        <meta expr:content='data:blog.metaDescription' name='description'/>
-    </b:if>
-    
-    <!-- SEO Meta Tags -->
-    <meta name='keywords' content='blog, wiki, Blogger, custom template, SEO'/>
-    <meta name='author' content='<data:blog.author/>'/>
-    
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property='og:title' content='<data:blog.title/>'/>
-    <meta property='og:type' content='website'/>
-    <meta property='og:url' content='<data:blog.homepageUrl/>'/>
-    <meta property='og:image' expr:content='data:blog.headerImageUrl'/>
-    <meta property='og:description' expr:content='data:blog.metaDescription'/>
-    
-    <!-- Twitter Card Meta Tags -->
-    <meta name='twitter:card' content='summary_large_image'/>
-    <meta name='twitter:title' content='<data:blog.title/>'/>
-    <meta name='twitter:description' expr:content='data:blog.metaDescription'/>
-    <meta name='twitter:image' expr:content='data:blog.headerImageUrl'/>
+  <!-- Meta Description -->
+<b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+<b:else/>
+    <meta name="description" content="Welcome to Wandering Wikis—a project dedicated to making encyclopedias fun and engaging. Explore knowledge with MoribundMurdoch through lively discussions, creative presentations, and in-depth walkthroughs."/>
+</b:if>
+
+  <!-- SEO Meta Tags -->
+<meta name='keywords' content='blog, wiki, Blogger, custom template, SEO, Moribund Institute, Finitude Fighters, WanderingWikis, MoribundMurdoch'/>
+<meta name='author' content='MoribundMurdoch'/>
+<meta name='publisher' content='Moribund Institute'/>
+<meta name='organization' content='Finitude Fighters'/>
+
+  <!-- Open Graph Meta Tags for Social Media -->
+<meta property='og:title' content='<data:blog.title/>'/>
+<meta property='og:type' content='website'/>
+<meta property='og:url' content='<data:blog.homepageUrl/>'/>
+<meta property='og:image' expr:content='data:blog.headerImageUrl'/>
+<meta property='og:image:alt' content='WanderingWikis - Fun exploration of encyclopedias'/>
+<meta property='og:site_name' content='WanderingWikis'/>
+<meta property='og:locale' content='en_US'/>
+<meta property='og:description' expr:content='data:blog.metaDescription'/>
+
+<!-- Dynamic Open Graph Tags for Blog Posts -->
+<b:if cond='data:blog.pageType == "item"'>
+    <meta property='og:title' expr:content='data:post.title'/>
+    <meta property='og:description' expr:content='data:post.snippet'/>
+    <meta property='og:image' expr:content='data:post.featuredImage'/>
+    <meta property='og:url' expr:content='data:post.url'/>
+    <meta property='og:type' content='article'/>
+    <meta property='article:author' content='MoribundMurdoch'/>
+    <meta property='article:published_time' expr:content='data:post.date.iso8601'/>
+    <meta property='article:section' expr:content='data:post.labels[0]'/>
+</b:if>
+
+  <!-- Twitter Card Meta Tags -->
+<meta name='twitter:card' content='summary_large_image'/>
+<meta name='twitter:title' content='<data:blog.title/>'/>
+<meta name='twitter:description' expr:content='data:blog.metaDescription'/>
+<meta name='twitter:image' expr:content='data:blog.headerImageUrl'/>
+<meta name='twitter:site' content='@WanderingWikis'/>
+<meta name='twitter:creator' content='@WanderingWikis'/>
+<meta name='twitter:header_image' content='https://pbs.twimg.com/profile_banners/1389364887151943680/1628496425/1500x500'/>
+<meta name='twitter:profile_image' content='https://pbs.twimg.com/profile_images/1424643379598610434/EBWtqrVr_400x400.jpg'/>
+<meta name='twitter:description' content='Join the Wikipedia Memorists on the Wikipedia front opposing Wikipedia Oblivescence!'/>
+
     
     <!-- External Stylesheets -->
     <link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap' rel='stylesheet'/>
@@ -39,10 +64,14 @@
     <link href='https://example.com/wiki-custom-stylesheet.css' rel='stylesheet'/>
     
     <!-- Favicon -->
-    <link rel='icon' type='image/x-icon' href='<data:blog.faviconUrl/>' sizes='16x16 32x32 48x48'/>
-    <link rel='icon' type='image/png' href='<data:blog.faviconUrl/>' sizes='192x192'/>
-    <link rel='apple-touch-icon' href='<data:blog.faviconUrl/>' sizes='180x180'/>
-    
+<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEirS8EZyr0fB8T9_J_CgAqHSvo45LzuQo3ORhTDDDXDnghClftm8yKU-cd5nhCanmF1IHUFUDSriW0_yB5EsVFe6A2rw5kWiT9xKW3L1NpFDOVOHA9Bg_upUXQW2yGCa9nonas6Tq_xHXZdNmnwLB6CfHPpI4AKIEtHsm6kM5fJ687hSxs3xzAy1zov' sizes='32x32'/>
+<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEiXtxR9FEMNUKki91kuYeTBLtvMQiR4pL9gA85pF0jMheNzJ8y65pwYPfWKOvZkIAiT4LUkBIFole8OWXZi8UMOUSRJkh3S0DQfl9CpPaoURE9kW8VtW1Rm6iisyWYGh-nyHkjk8dim0tR8gauiJQr4i_PQuFO6IbZ4cv2ROTAoDrPkaYX1vMuyFz31' sizes='16x16'/>
+<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEhliyPHSG70AIyZC-8u4RQl1KAa_o_nhOQzBZh44Hxy03WcZalgOZ9jF2r1H5cwXAl62v6rZr0cJ28N27csRqs3ID_HxW2-b9MSO44QKoIlRyRuW-nQ0DjeOqxJzmMuqXhFGHugMd-CmoTRMaCsXmwHQ3ik7_zA990w-DSOw8KvTjRCTAneK13ZqO_h' sizes='150x150'/>
+<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEhvfWUTfiau0iN_pBNObcHuaSoj36TncONNlWrj41WantKm84qGAcmGIjfk-QsjjQGV9C59aVRzyikmJYIlCKFnzVRkDfhT-pXKLfduf1j2aevpcO-VU0HLIOuo-VR_fCTCgUwLvByrqyYRqWIe4eGarDoc1_7N_5FCWxKm5Bwu91Y2Vo57oziVwR1p' sizes='180x180'/>
+<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEhb1jrsME2RHftF_L-yeA2VJg0XUWu36QTq9udGzS5ZovgL-heivERdQO8Gjc3O5gGa3AAysnx4yU4ZQSa6_rkw3Jj3L8pE-BqkvxMzuhDIBJ6Y9sstBIQ3-8uiRNly-i-trv90sA0QvcUUdnvGOsyBQlJMIYHmz4ZYgZttoxAymMo4htxgTIcOymiX' sizes='152x152'/>
+<link rel='apple-touch-icon' href='https://blogger.googleusercontent.com/img/a/AVvXsEjLexShxDJt4-aAyBa8_vUIF3JCP33FXWcWEmF8pgYcds_PEsSadZgpGoezZMi-eDn8k9SBaqSgOcMOxvhlrcmGOXC5IkEE8RRytoFvf5Rksy1JAaNoD2atjQjTz2ssI9V7wthL9rQYTn_D6u5C4NV_Ts7bLPc3eUC0bFmnfmEgqAjnLKKfP8tNPlXE' sizes='144x144'/>
+<link rel='icon' type='image/png' href='https://blogger.googleusercontent.com/img/a/AVvXsEgLwXSAwJzzwcrBL5A04enhzJCvInakwVrbJNGlaX2piZP9YYzrVkABIlftVyKxap-HqHetIYfQrKhghmRVg7Ra6ScYLJbZvN-x1V7tQbM9Lx59BpYpQEZiJfLu0uBZm0UX7vSJIVP6_UtcLYxt81kyJ3QNeVcgCGY-hpJPnuXF18RsCE6z9sTnh67G' sizes='96x96'/>
+
     <!-- Analytics Script or Custom JavaScript -->
     <script async src='https://example.com/analytics.js'></script>
     
