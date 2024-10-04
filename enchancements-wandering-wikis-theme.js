@@ -26,36 +26,38 @@ document.addEventListener('DOMContentLoaded', function() {
     // New functionality for fetching recent posts
     var notificationList = document.getElementById('notification-list');
 
-    function fetchRecentPosts() {
-        console.log('Fetching recent posts...');
-        fetch('/p/recent-posts.html')
-            .then(response => response.text())
-            .then(html => {
-                console.log('Received HTML:', html);
-                var parser = new DOMParser();
-                var doc = parser.parseFromString(html, 'text/html');
-                var recentPosts = doc.querySelectorAll('#recent-posts-container .recent-post-item');
-                console.log('Found recent posts:', recentPosts.length);
-                
-                notificationList.innerHTML = ''; // Clear existing content
-                recentPosts.forEach((post, index) => {
-                    if (index < 5) { // Limit to 5 posts in the dropdown
-                        notificationList.appendChild(post.cloneNode(true));
-                    }
+  function fetchRecentPosts() {
+    console.log('Fetching recent posts for dropdown...');
+    fetch('/feeds/posts/default?alt=json&max-results=5')
+        .then(response => {
+            console.log('Response status:', response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Received data:', data);
+            var posts = data.feed.entry;
+            notificationList.innerHTML = ''; // Clear existing content
+            if (posts && posts.length > 0) {
+                console.log('Found posts:', posts.length);
+                posts.forEach(post => {
+                    var title = post.title.$t;
+                    var url = post.link.find(link => link.rel === "alternate").href;
+                    var listItem = document.createElement('div');
+                    listItem.className = 'notification-item';
+                    listItem.innerHTML = `<a href="${url}">${title}</a>`;
+                    notificationList.appendChild(listItem);
                 });
-
-                if (notificationList.children.length === 0) {
-                    console.log('No recent posts found');
-                    notificationList.innerHTML = '<div class="notification-item">No recent posts found</div>';
-                } else {
-                    console.log('Added recent posts to dropdown');
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching recent posts:', error);
-                notificationList.innerHTML = '<div class="notification-item">Error loading recent posts</div>';
-            });
-    }
+                console.log('Added recent posts to dropdown');
+            } else {
+                console.log('No recent posts found in the data');
+                notificationList.innerHTML = '<div class="notification-item">No recent posts found</div>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching recent posts:', error);
+            notificationList.innerHTML = '<div class="notification-item">Error loading recent posts</div>';
+        });
+}
 
     // Modified notification toggle event listener
     notificationToggle.addEventListener('click', function(e) {
