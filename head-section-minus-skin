@@ -19,10 +19,15 @@
 </b:if>
 
   <!-- SEO Meta Tags -->
+<meta name='robots' content='index, follow'/>
 <meta name='keywords' content='blog, wiki, Blogger, custom template, SEO, Moribund Institute, Finitude Fighters, WanderingWikis, MoribundMurdoch'/>
 <meta name='author' content='MoribundMurdoch'/>
 <meta name='publisher' content='Moribund Institute'/>
 <meta name='organization' content='Finitude Fighters'/>
+ <meta name='geo.region' content='EE, TW'/>
+    <meta name='geo.placename' content='Estonia, Taiwan'/>
+    <meta name='geo.position' content='59.437,24.753; 23.6978,120.9605'/>
+    <meta name='ICBM' content='59.437,24.753; 23.6978,120.9605'/>
 
   <!-- Open Graph Meta Tags for Social Media -->
 <meta property='og:title' content='<data:blog.title/>'/>
