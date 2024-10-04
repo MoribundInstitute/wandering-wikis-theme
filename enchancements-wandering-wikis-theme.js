@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             console.log('Received data:', data);
             var posts = data.feed.entry;
+            var notificationList = document.getElementById('notification-list');
             notificationList.innerHTML = ''; // Clear existing content
             if (posts && posts.length > 0) {
                 console.log('Found posts:', posts.length);
