@@ -1,0 +1,78 @@
+  /* Search Bar */
+  --color-search-default: #131314;
+  --color-search-hover: #050505;
+  --color-search-glow: rgba(236, 236, 235, 0.6);
+}
+
+/* Center the Search Bar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 600px;
+  height: 40px;
+  max-width: 100%;
+  margin: 10px 0;
+  position: relative;
+  border-radius: 20px;
+  transition: box-shadow 0.3s ease; /* Glow effect transition */
+}
+
+/* Add Glow on Hover */
+.search-bar:hover,
+.search-bar:focus-within {
+  box-shadow: 0 0 2px 2px var(--color-search-glow);
+}
+
+.search-bar form {
+  display: flex;
+  background-color: var(--color-search-default);
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0 15px;
+  border: none;
+  background: transparent;
+  color: var(--color-on-background);
+  outline: none;
+}
+
+.search-bar button {
+  background-color: transparent;
+  border: none;
+  padding: 0 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-on-surface);
+}
+.search-bar:hover form,
+.search-bar:focus-within form {
+  background-color: var(--color-search-hover);
+}
+
+<!-- Center Section: Search Bar -->
+				<div class='center-section'>
+					<div class='search-bar'>
+						<form action='/search' method='get' role='search'>
+							<input name='q' placeholder='Search...' type='search'/>
+							<button class='search-bar-submit'>
+								<span class='material-icons'>search</span>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</header>
