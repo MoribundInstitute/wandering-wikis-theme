@@ -1,17 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:css='false' b:defaultmarkup='false' b:layoutsVersion='3' b:responsive='true' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html b:css='false' b:js='true' b:layoutsVersion='3' b:render='true' b:responsive='true'
+      b:templateUrl='https://github.com/MoribundInstitute/wandering-wikis-theme/blob/cf83222b1770d4e26a5313642c45d6cde0a59cb5/xml-file'
+      expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' 
+      xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' 
+      xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+
 <head>
     <meta charset='UTF-8'/>
-    <meta content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1' name='viewport'/>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
     <title><data:blog.title/></title>
+    
+    <!-- Meta Description -->
     <b:if cond='data:blog.metaDescription'>
         <meta expr:content='data:blog.metaDescription' name='description'/>
     </b:if>
-    <link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&amp;display=swap' rel='stylesheet'/>
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
     
+    <!-- SEO Meta Tags -->
+    <meta name='keywords' content='blog, wiki, Blogger, custom template, SEO'/>
+    <meta name='author' content='<data:blog.author/>'/>
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property='og:title' content='<data:blog.title/>'/>
+    <meta property='og:type' content='website'/>
+    <meta property='og:url' content='<data:blog.homepageUrl/>'/>
+    <meta property='og:image' expr:content='data:blog.headerImageUrl'/>
+    <meta property='og:description' expr:content='data:blog.metaDescription'/>
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name='twitter:card' content='summary_large_image'/>
+    <meta name='twitter:title' content='<data:blog.title/>'/>
+    <meta name='twitter:description' expr:content='data:blog.metaDescription'/>
+    <meta name='twitter:image' expr:content='data:blog.headerImageUrl'/>
+    
+    <!-- External Stylesheets -->
+    <link href='https://fonts.googleapis.com/css2?family=IM+Fell+English&display=swap' rel='stylesheet'/>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'/>
+    <link href='https://example.com/wiki-custom-stylesheet.css' rel='stylesheet'/>
+    
+    <!-- Favicon -->
+    <link rel='icon' type='image/x-icon' href='<data:blog.faviconUrl/>' sizes='16x16 32x32 48x48'/>
+    <link rel='icon' type='image/png' href='<data:blog.faviconUrl/>' sizes='192x192'/>
+    <link rel='apple-touch-icon' href='<data:blog.faviconUrl/>' sizes='180x180'/>
+    
+    <!-- Analytics Script or Custom JavaScript -->
+    <script async src='https://example.com/analytics.js'></script>
+    
+    <!-- Conditional JavaScript for Specific Pages -->
+    <b:if cond='data:blog.pageType == "item"'>
+        <script>
+            (function() {
+                // Custom JavaScript for single post pages
+                console.log("Single post page script running for Wiki theme.");
+            })();
+        </script>
+    </b:if>
+    
+    <!-- Blogger Skin (CSS) -->
     <b:skin><![CDATA[
-   
-    ]]></b:skin> 
+        /* Add your custom CSS here */
+    ]]></b:skin>
 </head>
